@@ -1,38 +1,26 @@
-extends includes/layout.pug
-
-block content
-    article#post
-        .post-header
-            .title= page.title
-            .container
-                time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.posted')] #[=date(page['date'], config.date_format)] | #[=__('post.modified')] #[=date(page['updated'], config.date_format)]
-                //time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]
-                .button-hover.categories
-                    each categories,index in page.categories.data
-                        i.fa.fa-inbox.article-icon(aria-hidden="true")
-                        a.link-a(href=url_for(categories.path)) #[=categories.name]
-                        if(index < page.categories.data.length - 1)
-                            i.fa.fa-angle-right(style="margin: 0 8px;")
-                .button-hover.tags
-                    each tags,index in page.tags.data
-                        i.fa.fa-tag.article-icon(aria-hidden="true")
-                        a.link-a(href=url_for(tags.path)) #[=tags.name]
-                        if(index < page.tags.data.length - 1)
-                            span &nbsp;|&nbsp;
-        .main-content!= page.content
-        if (theme.post_copyright && theme.post_copyright.enable)
-            .post-copyright
-                .post-copyright-author
-                    span.post-copyright-meta= _p('post.copyright.author') + ": "
-                    span.post-copyright-info
-                        - let mailto = `mailto:${config.email}`
-                        a(href=mailto) #[=config.author]
-                .post-copyright-type
-                    span.post-copyright-meta= _p('post.copyright.link') + ": "
-                    span.post-copyright-info
-                        a(href=url_for(page.permalink)) #[=page.permalink]
-                .post-copyright-notice
-                    span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-                    span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
-    include includes/pagination.pug
-    //div!= paginator()
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="44--通配符匹配"><meta name="keywords" content="贪心策略"><meta name="author" content="lg,undefined"><meta name="copyright" content="lg"><title>44--通配符匹配【LiGuang's Blog】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="icon" href="/favicon.ico"><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  }
+}</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="LiGuang's Blog" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#通配符匹配"><span class="toc-number">1.</span> <span class="toc-text">通配符匹配</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.jpg"></div><div class="author-info-name">lg</div><div class="author-info-description">Success is to do simple things repeatedly.</div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/lg666kkk" target="_blank">GitHub<i class="icon-dot bg-color10"></i></a><a class="links-button button-hover" href="mailto:17358183496@163.com" target="_blank">E-Mail<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="tencent://message/?uin=3496294573&amp;Site=&amp;Menu=yes" target="_blank">QQ<i class="icon-dot bg-color1"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">19</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">11</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">5</span></a></div><div class="friend-link"><a class="friend-link-text" href="https://mp.csdn.net/postlist" target="_blank">csdn博客</a><a class="friend-link-text" href="https://www.facebook.com/lwllg.guang" target="_blank">facebook</a><a class="friend-link-text" href="https://t.me/lg6666" target="_blank">Twitter</a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a></nav><div class="right-info"><a class="title-name" href="/">LiGuang's Blog</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">44--通配符匹配</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-10-24 | 更新于 2019-10-26</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/LeetCode%E7%AE%97%E6%B3%95/">LeetCode算法</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5/">贪心策略</a></div></div></div><div class="main-content"><h2 id="通配符匹配"><a href="#通配符匹配" class="headerlink" title="通配符匹配"></a>通配符匹配</h2><ol>
+<li><p>问题描述<br>给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 ‘ ? ‘ 和 ‘ * ‘ 的通配符匹配。<br>‘ ? ‘ 可以匹配任何单个字符。<br>‘ * ‘ 可以匹配任意字符串（包括空字符串）<br>s 可能为空，且只包含从 a-z 的小写字母。<br>p 可能为空，且只包含从 a-z 的小写字母，以及字符  ?  和  *</p>
+</li>
+<li><p>代码实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> star=<span class="number">-1</span>, match=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> sp=<span class="number">0</span>, pp=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(sp &lt; s.length)&#123;</span><br><span class="line">     <span class="keyword">if</span>(pp&lt;p.length &amp;&amp; (s[sp] == p[pp] || p[pp] ==<span class="string">"?"</span>))&#123;</span><br><span class="line">           sp++;</span><br><span class="line">           pp++;</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pp&lt;p.length &amp;&amp; p[pp] == <span class="string">"*"</span>)&#123;</span><br><span class="line">           star = pp;</span><br><span class="line">           match = sp;</span><br><span class="line">           pp++;</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(star != <span class="number">-1</span>)&#123;</span><br><span class="line">           pp = star + <span class="number">1</span>;</span><br><span class="line">           match++;</span><br><span class="line">           sp = match;</span><br><span class="line">     &#125;<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">while</span> (pp &lt; p.length &amp;&amp; p[pp] == <span class="string">'*'</span>) pp++;</span><br><span class="line">    <span class="keyword">return</span> pp == p.length;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">lg</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://lg666kkk.github.io/2019/10/24/stringMatch/">https://lg666kkk.github.io/2019/10/24/stringMatch/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lg666kkk.github.io">LiGuang's Blog</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/10/31/ub2/"><i class="fas fa-angle-left">&nbsp;</i><span>ubuntu系统重装</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/10/07/h5-1/"><span>H5学习笔记(一)</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2019 ～ 2020 By lg</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--></body></html>
