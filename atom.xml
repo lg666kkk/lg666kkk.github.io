@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lg666kkk.github.io/"/>
-  <updated>2020-04-29T01:16:34.867Z</updated>
+  <updated>2020-04-29T01:19:00.726Z</updated>
   <id>https://lg666kkk.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lg666kkk.github.io/2020/04/29/unknowjs1/"/>
     <id>https://lg666kkk.github.io/2020/04/29/unknowjs1/</id>
     <published>2020-04-29T00:47:58.000Z</published>
-    <updated>2020-04-29T01:16:34.867Z</updated>
+    <updated>2020-04-29T01:19:00.726Z</updated>
     
     <content type="html"><![CDATA[<h2 id="With"><a href="#With" class="headerlink" title="With"></a>With</h2><p>本质上是通过将一个对象的引用当做作用于来处理，将对象的属性当做作用域中的标识符来处理，从而创建一个新的词法作用域。</p><p>首先，with是JS中欺骗词法的方法之一，另一种方法是eval()</p><ol><li>with通常被当做重复引用同一对象中的多个属性的快捷方式，可以不需要重复引用对象本身</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    a : <span class="number">3</span>,</span><br><span class="line">    b : <span class="number">4</span>,</span><br><span class="line">    d : <span class="number">7</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">with</span> (obj) &#123;</span><br><span class="line">    a = <span class="number">8</span>,</span><br><span class="line">    b = <span class="number">9</span>,</span><br><span class="line">    d = <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用with就相当于直接使用obj.a=8、obj.b=9、obj.d=10</span></span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br><span class="line"><span class="comment">// a=8, b=9, d=10</span></span><br></pre></td></tr></table></figure><ol start="2"><li>看如下代码</li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">with</span> (obj) &#123;</span><br><span class="line">        a = <span class="number">2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> o1 = &#123;</span><br><span class="line">    a : <span class="number">7</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> o2 = &#123;</span><br><span class="line">    b : <span class="number">7</span></span><br><span class="line">&#125;</span><br><span class="line">foo(o1)</span><br><span class="line"><span class="built_in">console</span>.log(o1.a); <span class="comment">// 2</span></span><br><span class="line">foo(o2)</span><br><span class="line"><span class="built_in">console</span>.log(o2.a); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// a</span></span><br></pre></td></tr></table></figure><p><strong>为什么会出现这种情况呢？？</strong></p><p>对于o1来说，其本身就有一个a属性，使用with关键字后，可以理解为with关键字的作用域就是o1,o1本身就有一个a属性，再对其进行了LHS引用，使a的值改变，这是显而易见的</p><p>对于o2来说，其本身没有一个a属性，使用with关键字后，with关键字的作用域就变成了o2,但是o2中没有a属性，所以o2.a就被赋值为了undefined，然后使用的LHS引用，从他的上一级作用域去去查找a,直到找到全局作用域，如果还没有找到a,就会在全局创建一个a并赋值为2(当然这是在非严格模式下的情况)</p><p>所以with会在运行时修改或创建一个新的作用域，以此来欺骗其他在书写时定义的词法作用域。</p><p>在严格模式下使用with会直接报错，严格模式下with是被禁止使用的</p><ol start="3"><li>虽然with在某些方面极为方便，但是<strong>非常不推荐使用with关键字</strong><ul><li>会影响JS引擎在编译阶段的性能优化，如果代码中由大量的with，那么运行起来会非常慢</li><li>严格模式下无法使用</li></ul></li></ol>]]></content>
     
@@ -36,10 +36,10 @@
     </summary>
     
     
-      <category term="《你所不知道的JavaScript》" scheme="https://lg666kkk.github.io/categories/%E3%80%8A%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%E3%80%8B/"/>
+      <category term="前端" scheme="https://lg666kkk.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="JvaScript" scheme="https://lg666kkk.github.io/tags/JvaScript/"/>
+      <category term="《你所不知道的JavaScript》" scheme="https://lg666kkk.github.io/tags/%E3%80%8A%E4%BD%A0%E6%89%80%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%E3%80%8B/"/>
     
   </entry>
   
