@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lg666kkk.github.io/"/>
-  <updated>2023-06-03T10:07:07.921Z</updated>
+  <updated>2023-06-03T10:09:14.643Z</updated>
   <id>https://lg666kkk.github.io/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>超人来了</title>
+    <link href="https://lg666kkk.github.io/2023/06/03/%E8%B6%85%E4%BA%BA%E6%9D%A5%E4%BA%86/"/>
+    <id>https://lg666kkk.github.io/2023/06/03/%E8%B6%85%E4%BA%BA%E6%9D%A5%E4%BA%86/</id>
+    <published>2023-06-03T10:09:14.000Z</published>
+    <updated>2023-06-03T10:09:14.643Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>20230603</title>
@@ -513,34 +528,6 @@
     
     
       <category term="贪心策略" scheme="https://lg666kkk.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>H5学习笔记(一)</title>
-    <link href="https://lg666kkk.github.io/2019/10/07/h5-1/"/>
-    <id>https://lg666kkk.github.io/2019/10/07/h5-1/</id>
-    <published>2019-10-07T11:59:59.000Z</published>
-    <updated>2019-11-09T15:25:49.585Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="H5学习笔记-一"><a href="#H5学习笔记-一" class="headerlink" title="H5学习笔记(一)"></a>H5学习笔记(一)</h2><ol><li>H5中的一些新增标签<ul><li>canvas 标签，用于JS绘图</li><li>audio 标签，用于定义音频内容</li><li>video 标签，用于定义视频内容</li><li>embed 标签，定义嵌入的内容，比如插件</li><li>article 标签，定义页面的侧边栏内容</li><li>aside 标签，定义页面内容之外的内容</li><li>footer 标签，定义section或document的页脚</li><li>header 标签，定义文档的头部区域</li><li>meter 标签，定义度量衡，仅用于已知最大和最小的度量</li><li>nav 标签，定义运行中的进度（进程）</li><li>section 标签，定义文档中的节(section 、区段)</li><li>datalist标签，为表单新增标签，常与input配合使用，类似于拥有输入功能的下拉列表</li><li>output标签，用于展示内容，只能展示，不能用来编辑<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span>&gt;</span>文档头部<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">article</span>&gt;</span>页面侧边栏内容<span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">aside</span>&gt;</span>页面内容之外的内容<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>定义页脚<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure></li></ul></li><li>新增表单的输入类型<ul><li>email: 输入email格式</li><li>tel: 手机号码</li><li>url:只能输入url格式</li><li>number：只能输入数字</li><li>search: 搜索框</li><li>range : 范围，可以进行拖动，进行value取值</li><li>color : 拾色器，通过value进行取值</li><li>time ： 时间</li><li>data : 日期</li><li>datatime : 时间日期</li><li>month : 月份</li><li>week : 星期</li></ul></li><li>表单新增事件<ul><li>oninput 用户输入内容时触发，可用于移动端的输入字数统计</li><li>oninvaild 验证不通过时触发</li></ul></li><li>表单新增属性<ul><li>placeholder 占位符</li><li>autofocus 获取焦点</li><li>multiple 文件上传多选或多个邮箱地址</li><li>form 指定表单向属于哪个form,处理复杂表单时会需要</li><li>autocomplete 自动完成，用于表单元素，也可用于表单自身</li><li>novalidate 关闭验证，可用于form标签</li><li>required 验证条件，必填项</li><li>pattern 正则表达式，验证表单</li></ul></li><li>案例：详见我的CSDN上的 H5简易登录界面那一篇博客</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;H5学习笔记-一&quot;&gt;&lt;a href=&quot;#H5学习笔记-一&quot; class=&quot;headerlink&quot; title=&quot;H5学习笔记(一)&quot;&gt;&lt;/a&gt;H5学习笔记(一)&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;H5中的一些新增标签&lt;ul&gt;
-&lt;li&gt;canvas 标签，用于JS绘图&lt;/l
-      
-    
-    </summary>
-    
-    
-      <category term="前端" scheme="https://lg666kkk.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="H5学习" scheme="https://lg666kkk.github.io/tags/H5%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
