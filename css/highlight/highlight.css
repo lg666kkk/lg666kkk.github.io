@@ -7,6 +7,9 @@
 #post figure.highlight.python table::before {
   content: "python";
 }
+#post figure.highlight.ipython table::before {
+  content: "ipython";
+}
 #post figure.highlight.ruby table::before {
   content: "ruby";
 }
@@ -43,6 +46,9 @@
 #post figure.highlight.c\+\+ table::before {
   content: "c\+\+";
 }
+#post figure.highlight.cpp table::before {
+  content: "cpp";
+}
 #post figure.highlight.go table::before {
   content: "go";
 }
@@ -69,6 +75,15 @@
 }
 #post figure.highlight.bash table::before {
   content: "bash";
+}
+#post figure.highlight.nginx table::before {
+  content: "nginx";
+}
+#post figure.highlight.lua table::before {
+  content: "lua";
+}
+#post figure.highlight.markdown table::before {
+  content: "markdown";
 }
 #post pre,
 .post-content pre,

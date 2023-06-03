@@ -173,6 +173,9 @@ body .button-hover:hover::before {
   #post figure.highlight.python table::before {
     content: "python";
   }
+  #post figure.highlight.ipython table::before {
+    content: "ipython";
+  }
   #post figure.highlight.ruby table::before {
     content: "ruby";
   }
@@ -209,6 +212,9 @@ body .button-hover:hover::before {
   #post figure.highlight.c\+\+ table::before {
     content: "c\+\+";
   }
+  #post figure.highlight.cpp table::before {
+    content: "cpp";
+  }
   #post figure.highlight.go table::before {
     content: "go";
   }
@@ -235,6 +241,15 @@ body .button-hover:hover::before {
   }
   #post figure.highlight.bash table::before {
     content: "bash";
+  }
+  #post figure.highlight.nginx table::before {
+    content: "nginx";
+  }
+  #post figure.highlight.lua table::before {
+    content: "lua";
+  }
+  #post figure.highlight.markdown table::before {
+    content: "markdown";
   }
   #post pre,
   .post-content pre,
@@ -735,6 +750,10 @@ body .button-hover:hover::before {
     margin: 0 8px;
   }
   #footer .right-content .copyright {
+    font-size: 12px;
+  }
+  #footer .right-content .beian {
+    margin-left: 8px;
     font-size: 12px;
   }
   #menu-outer {
@@ -2173,6 +2192,67 @@ body .button-hover:hover::before {
     display: none;
     background: rgba(255,255,255,0.2);
   }
+  #comments-container {
+    background: rgba(255,255,255,0.6) !important;
+  }
+  #comments-container .gitment-root-container {
+    margin: 0;
+  }
+  #comments-container .gitment-root-container .gitment-header-container {
+    margin: 0 0 19px 0;
+  }
+  #comments-container .gitment-root-container .gitment-footer-container {
+    margin-bottom: 0;
+  }
+  #comments-container .gitment-comment-header {
+    padding: 4px 8px;
+    background-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::before,
+  #comments-container .gitment-comment-main::before {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::after,
+  #comments-container .gitment-comment-main::after {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-comment-main,
+  #comments-container .gitment-editor-main {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+  }
+  #comments-container .gitment-editor-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-tab.gitment-selected {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #e67700;
+  }
+  #comments-container .gitment-editor-body textarea {
+    background-color: transparent;
+  }
+  #comments-container .gitment-editor-body textarea:focus {
+    background-color: transparent;
+  }
+  #comments-container.valine {
+    background: rgba(255,255,255,0) !important;
+  }
+  #comments-container.v[data-class=v] .vinput,
+  #comments-container.v[data-class=v] p,
+  #comments-container.v[data-class=v] .vbtn,
+  #comments-container.v[data-class=v] .vempty {
+    color: #fff;
+  }
+  #comments-container.v[data-class=v] .vbtn:hover {
+    color: #3090e4;
+  }
+  #comments-container.v[data-class=v] .vicon {
+    fill: #fff;
+  }
+  #comments-container.v[data-class=v] .vicon.actived {
+    fill: #66b1ff;
+  }
 }
 @media screen and (min-width: 900px) and (max-width: 1199px) {
   #post figure.highlight.js table::before {
@@ -2183,6 +2263,9 @@ body .button-hover:hover::before {
   }
   #post figure.highlight.python table::before {
     content: "python";
+  }
+  #post figure.highlight.ipython table::before {
+    content: "ipython";
   }
   #post figure.highlight.ruby table::before {
     content: "ruby";
@@ -2220,6 +2303,9 @@ body .button-hover:hover::before {
   #post figure.highlight.c\+\+ table::before {
     content: "c\+\+";
   }
+  #post figure.highlight.cpp table::before {
+    content: "cpp";
+  }
   #post figure.highlight.go table::before {
     content: "go";
   }
@@ -2246,6 +2332,15 @@ body .button-hover:hover::before {
   }
   #post figure.highlight.bash table::before {
     content: "bash";
+  }
+  #post figure.highlight.nginx table::before {
+    content: "nginx";
+  }
+  #post figure.highlight.lua table::before {
+    content: "lua";
+  }
+  #post figure.highlight.markdown table::before {
+    content: "markdown";
   }
   #post pre,
   .post-content pre,
@@ -2746,6 +2841,10 @@ body .button-hover:hover::before {
     margin: 0 8px;
   }
   #footer .right-content .copyright {
+    font-size: 12px;
+  }
+  #footer .right-content .beian {
+    margin-left: 8px;
     font-size: 12px;
   }
   #menu-outer {
@@ -4186,6 +4285,67 @@ body .button-hover:hover::before {
     z-index: 1000;
     display: none;
     background: rgba(255,255,255,0.2);
+  }
+  #comments-container {
+    background: rgba(255,255,255,0.6) !important;
+  }
+  #comments-container .gitment-root-container {
+    margin: 0;
+  }
+  #comments-container .gitment-root-container .gitment-header-container {
+    margin: 0 0 19px 0;
+  }
+  #comments-container .gitment-root-container .gitment-footer-container {
+    margin-bottom: 0;
+  }
+  #comments-container .gitment-comment-header {
+    padding: 4px 8px;
+    background-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::before,
+  #comments-container .gitment-comment-main::before {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::after,
+  #comments-container .gitment-comment-main::after {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-comment-main,
+  #comments-container .gitment-editor-main {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+  }
+  #comments-container .gitment-editor-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-tab.gitment-selected {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #e67700;
+  }
+  #comments-container .gitment-editor-body textarea {
+    background-color: transparent;
+  }
+  #comments-container .gitment-editor-body textarea:focus {
+    background-color: transparent;
+  }
+  #comments-container.valine {
+    background: rgba(255,255,255,0) !important;
+  }
+  #comments-container.v[data-class=v] .vinput,
+  #comments-container.v[data-class=v] p,
+  #comments-container.v[data-class=v] .vbtn,
+  #comments-container.v[data-class=v] .vempty {
+    color: #fff;
+  }
+  #comments-container.v[data-class=v] .vbtn:hover {
+    color: #3090e4;
+  }
+  #comments-container.v[data-class=v] .vicon {
+    fill: #fff;
+  }
+  #comments-container.v[data-class=v] .vicon.actived {
+    fill: #66b1ff;
   }
 }
 @media screen and (max-width: 899px) {
@@ -6184,6 +6344,67 @@ body .button-hover:hover::before {
     z-index: 1000;
     display: none;
     background: rgba(255,255,255,0.2);
+  }
+  #comments-container {
+    background: rgba(255,255,255,0.6) !important;
+  }
+  #comments-container .gitment-root-container {
+    margin: 0;
+  }
+  #comments-container .gitment-root-container .gitment-header-container {
+    margin: 0 0 19px 0;
+  }
+  #comments-container .gitment-root-container .gitment-footer-container {
+    margin-bottom: 0;
+  }
+  #comments-container .gitment-comment-header {
+    padding: 4px 8px;
+    background-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::before,
+  #comments-container .gitment-comment-main::before {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-main::after,
+  #comments-container .gitment-comment-main::after {
+    border-right-color: rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-comment-main,
+  #comments-container .gitment-editor-main {
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 4px;
+  }
+  #comments-container .gitment-editor-header {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  #comments-container .gitment-editor-tab.gitment-selected {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #e67700;
+  }
+  #comments-container .gitment-editor-body textarea {
+    background-color: transparent;
+  }
+  #comments-container .gitment-editor-body textarea:focus {
+    background-color: transparent;
+  }
+  #comments-container.valine {
+    background: rgba(255,255,255,0) !important;
+  }
+  #comments-container.v[data-class=v] .vinput,
+  #comments-container.v[data-class=v] p,
+  #comments-container.v[data-class=v] .vbtn,
+  #comments-container.v[data-class=v] .vempty {
+    color: #fff;
+  }
+  #comments-container.v[data-class=v] .vbtn:hover {
+    color: #3090e4;
+  }
+  #comments-container.v[data-class=v] .vicon {
+    fill: #fff;
+  }
+  #comments-container.v[data-class=v] .vicon.actived {
+    fill: #66b1ff;
   }
 }
 /*@media screen and (max-width: 499px) {
