@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lg666kkk.github.io/"/>
-  <updated>2023-06-03T10:03:41.496Z</updated>
+  <updated>2020-12-23T11:36:34.540Z</updated>
   <id>https://lg666kkk.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>生活记录20230603</title>
-    <link href="https://lg666kkk.github.io/2023/06/03/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%9520230603/"/>
-    <id>https://lg666kkk.github.io/2023/06/03/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%9520230603/</id>
-    <published>2023-06-03T10:03:12.000Z</published>
-    <updated>2023-06-03T10:03:41.496Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="生活记录"><a href="#生活记录" class="headerlink" title="生活记录"></a>生活记录</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;生活记录&quot;&gt;&lt;a href=&quot;#生活记录&quot; class=&quot;headerlink&quot; title=&quot;生活记录&quot;&gt;&lt;/a&gt;生活记录&lt;/h1&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="生活记录" scheme="https://lg666kkk.github.io/categories/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/"/>
-    
-    
-      <category term="生活记录" scheme="https://lg666kkk.github.io/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
   
   <entry>
     <title>阿里云</title>
@@ -548,6 +522,33 @@
     
     
       <category term="H5学习" scheme="https://lg666kkk.github.io/tags/H5%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>两数之和</title>
+    <link href="https://lg666kkk.github.io/2019/09/05/sf1/"/>
+    <id>https://lg666kkk.github.io/2019/09/05/sf1/</id>
+    <published>2019-09-05T13:07:58.000Z</published>
+    <updated>2019-10-17T14:52:01.279Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="两数之和"><a href="#两数之和" class="headerlink" title="两数之和"></a>两数之和</h2><ol><li>问题描述：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</li><li>代码<ul><li>方法一: 执行用时：132 ms<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span> ; i&lt;nums.length ; i++)&#123;</span><br><span class="line">        k = i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j=i+<span class="number">1</span> ; j&lt;nums.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[k]+nums[j] == target)&#123;</span><br><span class="line">                <span class="keyword">return</span> [k , j]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li><li>方法二:执行用时：56 ms<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();<span class="comment">//Map是一组键值对的结构</span></span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;nums.length ; i++)&#123;</span><br><span class="line">   <span class="comment">//设置键值对:map.set(key , value)</span></span><br><span class="line">       map.set(nums[i],i);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>; j&lt;nums.length; j++)&#123;</span><br><span class="line">   <span class="comment">//map.has()返回布尔值,查询key是否在当前对象中</span></span><br><span class="line">   <span class="comment">//map.get()获取key对应的键值,若没有则返回undefined</span></span><br><span class="line">       <span class="keyword">if</span>(map.has(target-nums[j])&amp;&amp;map.get(target-nums[j])!=j)&#123;</span><br><span class="line">             <span class="keyword">return</span> [j,map.get(target - nums[j])];</span><br><span class="line">           &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;两数之和&quot;&gt;&lt;a href=&quot;#两数之和&quot; class=&quot;headerlink&quot; title=&quot;两数之和&quot;&gt;&lt;/a&gt;两数之和&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;问题描述：给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode算法" scheme="https://lg666kkk.github.io/categories/LeetCode%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode简单算法" scheme="https://lg666kkk.github.io/tags/leetcode%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
