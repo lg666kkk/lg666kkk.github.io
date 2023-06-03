@@ -338,13 +338,6 @@
   </url>
   
   <url>
-    <loc>https://lg666kkk.github.io/tags/H5%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-06-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lg666kkk.github.io/tags/Github%E4%BD%BF%E7%94%A8%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -352,7 +345,14 @@
   </url>
   
   <url>
-    <loc>https://lg666kkk.github.io/tags/leetcode%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://lg666kkk.github.io/tags/H5%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lg666kkk.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -360,6 +360,13 @@
   
   <url>
     <loc>https://lg666kkk.github.io/tags/%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5/</loc>
+    <lastmod>2023-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lg666kkk.github.io/tags/leetcode%E7%AE%80%E5%8D%95%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -381,13 +388,6 @@
   
   <url>
     <loc>https://lg666kkk.github.io/tags/ubuntu/</loc>
-    <lastmod>2023-06-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lg666kkk.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -431,6 +431,13 @@
   </url>
   
   <url>
+    <loc>https://lg666kkk.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2023-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lg666kkk.github.io/categories/LeetCode%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -439,13 +446,6 @@
   
   <url>
     <loc>https://lg666kkk.github.io/categories/ubuntu/</loc>
-    <lastmod>2023-06-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lg666kkk.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E5%8F%8A%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2023-06-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
