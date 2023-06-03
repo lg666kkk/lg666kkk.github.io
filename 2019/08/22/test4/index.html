@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="canvas学习笔记(三)"><meta name="keywords" content="canvas"><meta name="author" content="lg,undefined"><meta name="copyright" content="lg"><title>canvas学习笔记(三)【Charles's Blog】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- script(src=url_for("/js/mathjax/mathjax.js"))--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {},
+  twikoo: {},
+}</script><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Charles's Blog" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置填充和描边颜色"><span class="toc-number">1.</span> <span class="toc-text">设置填充和描边颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置阴影"><span class="toc-number">2.</span> <span class="toc-text">设置阴影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线性渐变样式"><span class="toc-number">3.</span> <span class="toc-text">线性渐变样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圆形渐变-径向渐变"><span class="toc-number">4.</span> <span class="toc-text">圆形渐变(径向渐变)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制背景图"><span class="toc-number">5.</span> <span class="toc-text">绘制背景图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缩放-重点内容"><span class="toc-number">6.</span> <span class="toc-text">缩放(重点内容)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#位移画布-重点"><span class="toc-number">7.</span> <span class="toc-text">位移画布(重点)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#画布旋转"><span class="toc-number">8.</span> <span class="toc-text">画布旋转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制环境的保存和还原"><span class="toc-number">9.</span> <span class="toc-text">绘制环境的保存和还原</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绘制环境的透明度"><span class="toc-number">10.</span> <span class="toc-text">绘制环境的透明度</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">lg</div><div class="author-info-description">Success is to do simple things repeatedly.</div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/fan-lv" target="_blank">GitHub<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="mailto:15757856604@163.com" target="_blank">E-Mail<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="tencent://message/?uin=1019593584&amp;Site=&amp;Menu=yes" target="_blank">QQ<i class="icon-dot bg-color1"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">31</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">14</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">6</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="title-name" href="/">Charles's Blog</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">canvas学习笔记(三)</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-08-22 | 更新于 2019-08-22</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/canvas/">canvas</a></div></div></div><div class="main-content"><h2 id="设置填充和描边颜色"><a href="#设置填充和描边颜色" class="headerlink" title="设置填充和描边颜色"></a>设置填充和描边颜色</h2><ol>
+<li>fillStyle : 设置用于填充绘画的颜色</li>
+<li>strokeStyle : 设置用于描边的颜色</li>
+<li>以上两个值都可以接受颜色名,16 进制数据，rgb 值，甚至 rgba. 一般先进行设置样式然后进行绘制。</li>
+</ol>
+<h2 id="设置阴影"><a href="#设置阴影" class="headerlink" title="设置阴影"></a>设置阴影</h2><ol>
+<li>此部分内容由于使用性能差，故了解即可，阴影的设置常用图片实现</li>
+<li>shadowColor ： 设置或返回用于阴影的颜色。</li>
+<li>shadowBlur ： 设置或返回用于阴影的模糊级别,大于 1 的正整数，数值越高，模糊程度越大</li>
+<li>shadowOffsetX： 设置或返回阴影距形状的水平距离</li>
+<li>shadowOffsetY： 设置或返回阴影距形状的垂直距离</li>
+</ol>
+<h2 id="线性渐变样式"><a href="#线性渐变样式" class="headerlink" title="线性渐变样式"></a>线性渐变样式</h2><ol>
+<li>一般不用，都是用图片代替，canvas 绘制图片效率更高</li>
+<li>线性渐变可以用于 矩形、圆形、文字等颜色样式，线性渐变是一个对象</li>
+<li>语法：ctx.createLinearGradient(x0,y0,x1,y1); //参数：x0,y0 起始坐标，x1,y1 结束坐标<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建线性渐变的对象，</span></span><br><span class="line"><span class="keyword">var</span> grd = ctx.createLinearGradient(<span class="number">0</span>, <span class="number">0</span>, <span class="number">170</span>, <span class="number">0</span>);</span><br><span class="line">grd.addColorStop(<span class="number">0</span>, <span class="string">'black'</span>); <span class="comment">//添加一个渐变颜色，第一个参数介于              0.0 与 1.0 之间的值，表示渐变中开始与结束之间的位置。</span></span><br><span class="line">grd.addColorStop(<span class="number">1</span>, <span class="string">'white'</span>); <span class="comment">//添加一个渐变颜色</span></span><br><span class="line">ctx.fillStyle = grd; <span class="comment">//关键点，把渐变设置到 填充的样式</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="圆形渐变-径向渐变"><a href="#圆形渐变-径向渐变" class="headerlink" title="圆形渐变(径向渐变)"></a>圆形渐变(径向渐变)</h2><ol>
+<li>创建放射状/圆形渐变对象。可以填充文本、形状等</li>
+<li>语法: context.createRadialGradient(x0,y0,r0,x1,y1,r1);<ul>
+<li>x0: 渐变的开始圆的 x 坐标</li>
+<li>y0: 渐变的开始圆的 y 坐标</li>
+<li>r0: 开始圆的半径</li>
+<li>x1: 渐变的结束圆的 x 坐标</li>
+<li>y1: 渐变的结束圆的 y 坐标</li>
+<li>r1: 结束圆的半径</li>
+</ul>
+</li>
+</ol>
+<h2 id="绘制背景图"><a href="#绘制背景图" class="headerlink" title="绘制背景图"></a>绘制背景图</h2><ol>
+<li>语法:ctx.createPattern(img,repeat) 方法在指定的方向内重复指定的元素</li>
+<li>不常用，了解即可</li>
+<li>第一参数：设置平铺背景的图片，第二个背景平铺的方式。<ul>
+<li>image ： 规定要使用的图片、画布或视频元素</li>
+<li>repeat ： 默认。该模式在水平和垂直方向重复</li>
+<li>repeat-x ： 该模式只在水平方向重复。</li>
+<li>repeat-y ： 该模式只在垂直方向重复。</li>
+<li>no-repeat： 该模式只显示一次（不重复）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ctx = c.getContext(<span class="string">'2d'</span>);</span><br><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">'lamp'</span>);</span><br><span class="line"><span class="keyword">var</span> pat = ctx.createPattern(img, <span class="string">'repeat'</span>);</span><br><span class="line">ctx.rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">150</span>, <span class="number">100</span>);</span><br><span class="line">ctx.fillStyle = pat; <span class="comment">//  把背景图设置给填充的样式</span></span><br><span class="line">ctx.fill();</span><br></pre></td></tr></table></figure>
+<h2 id="缩放-重点内容"><a href="#缩放-重点内容" class="headerlink" title="缩放(重点内容)"></a>缩放(重点内容)</h2></li>
+</ul>
+</li>
+<li>scale() 方法缩放当前绘图，更大或更小</li>
+<li>语法：context.scale(scalewidth,scaleheight)<ul>
+<li>scalewidth : 缩放当前绘图的宽度 (1=100%, 0.5=50%, 2=200%, 依次类推)</li>
+<li>scaleheight : 缩放当前绘图的高度 (1=100%, 0.5=50%, 2=200%, etc.) +注意：缩放的是整个画布，缩放后，继续绘制的图形会被放大或缩小。</li>
+</ul>
+</li>
+</ol>
+<h2 id="位移画布-重点"><a href="#位移画布-重点" class="headerlink" title="位移画布(重点)"></a>位移画布(重点)</h2><ol>
+<li>ctx.translate(x,y) 方法重新映射画布上的 (0,0) 位置<ul>
+<li>x： 添加到水平坐标（x）上的值</li>
+<li>y： 添加到垂直坐标（y）上的值</li>
+</ul>
+</li>
+<li>发生位移后，相当于把画布的 0,0 坐标 更换到新的 x,y 的位置，所有绘制的新元素都被影响,已绘制的旧元素不会改变</li>
+<li>位移画布一般配合缩放和旋转等</li>
+</ol>
+<h2 id="画布旋转"><a href="#画布旋转" class="headerlink" title="画布旋转"></a>画布旋转</h2><ol>
+<li>context.rotate(angle); 方法旋转当前的绘图</li>
+<li>注意参数是弧度（PI）</li>
+</ol>
+<h2 id="绘制环境的保存和还原"><a href="#绘制环境的保存和还原" class="headerlink" title="绘制环境的保存和还原"></a>绘制环境的保存和还原</h2><ol>
+<li>ctx.save() 保存当前环境的状态，可以把当前绘制环境进行保存到缓存中。</li>
+<li>ctx.restore() 返回之前保存过的路径状态和属性，获取最近缓存的 ctx</li>
+<li>一般配合位移画布使用</li>
+</ol>
+<h2 id="绘制环境的透明度"><a href="#绘制环境的透明度" class="headerlink" title="绘制环境的透明度"></a>绘制环境的透明度</h2><ol>
+<li>语法 : context.globalAlpha=number</li>
+<li>number:透明值。必须介于 0.0（完全透明） 与 1.0（不透明） 之间</li>
+<li>设置透明度是全局的透明度的样式。注意是全局的。</li>
+</ol>
+<blockquote>
+<p>本文摘录自老马前端canvas学习笔记，如有侵权，请联系删除</p>
+</blockquote>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">lg</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://lg666kkk.github.io/2019/08/22/test4/">https://lg666kkk.github.io/2019/08/22/test4/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本站点所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lg666kkk.github.io">Charles's Blog</a>！</span></div></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/22/reader1/"><i class="fas fa-angle-left">&nbsp;</i><span>《活着》</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/2019/08/19/test3/"><span>canvas学习笔记(二)</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2017 ～ 2023 By lg</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":140,"height":260},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
